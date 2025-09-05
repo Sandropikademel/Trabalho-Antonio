@@ -1,215 +1,235 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <title>Login - Sandro Motors</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+<meta charset="UTF-8" />
+<title>Login - Sandro Motors</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
 
-    <style>
-        /* Estilo geral */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Orbitron', sans-serif;
-            background: #0f0f0f;
-            overflow: hidden;
-            height: 100vh;
-            color: #ccc;
-        }
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Orbitron', sans-serif;
+        background: #0d0d0d;
+        overflow: hidden;
+        height: 100vh;
+        color: #ccc;
+    }
 
-        /* Fundo animado com bolinhas coloridas */
-        .background {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: #0d0d0d;
-            overflow: hidden;
-            z-index: 0;
-        }
+    .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #0d0d0d;
+        overflow: hidden;
+        z-index: 0;
+    }
 
-        .circles::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background-image: radial-gradient(circle, #00aaff 2px, transparent 2px),
-                              radial-gradient(circle, #00d4ff 2px, transparent 2px),
-                              radial-gradient(circle, #3399ff 2px, transparent 2px),
-                              radial-gradient(circle, #0055cc 2px, transparent 2px);
-            background-size: 60px 60px;
-            animation: moveDots 12s linear infinite;
-            opacity: 0.3;
-        }
+    .circles::before {
+        content: '';
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background-image: radial-gradient(circle, #007bff 2px, transparent 2px),
+                          radial-gradient(circle, #00d4ff 2px, transparent 2px),
+                          radial-gradient(circle, #3399ff 2px, transparent 2px),
+                          radial-gradient(circle, #0055cc 2px, transparent 2px);
+        background-size: 60px 60px;
+        animation: moveDots 12s linear infinite;
+        opacity: 0.3;
+    }
 
-        @keyframes moveDots {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-60px, -60px); }
-        }
+    @keyframes moveDots {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(-60px, -60px); }
+    }
 
-        /* Caixa de login */
-        .login-container {
-            position: relative;
-            z-index: 1;
-            background-color: rgba(10, 10, 10, 0.9);
-            padding: 50px 40px 30px 40px;
-            border-radius: 16px;
-            box-shadow: 0 0 25px rgba(0, 170, 255, 0.4);
-            text-align: center;
-            width: 360px;
-            margin: auto;
-            top: 50%;
-            transform: translateY(-50%);
-            border-top: 4px solid #00aaff;
-            border-bottom: 4px solid #0055cc;
-        }
+    .login-container {
+        position: relative;
+        z-index: 1;
+        background-color: rgba(10, 10, 10, 0.9);
+        padding: 50px 40px 30px 40px;
+        border-radius: 16px;
+        box-shadow: 0 0 25px rgba(0, 123, 255, 0.4);
+        text-align: center;
+        width: 360px;
+        margin: auto;
+        top: 50%;
+        transform: translateY(-50%);
+        border-top: 4px solid #007bff;
+        border-bottom: 4px solid #004999;
+    }
 
-        /* LOGO "S" estilizado */
-        .logo {
-            font-size: 48px;
-            color: #00aaff;
-            text-shadow: 0 0 12px #00aaff, 0 0 20px #00d4ff;
-            font-weight: bold;
-            margin-bottom: 10px;
-            animation: pulseLogo 2s infinite;
-        }
+    /* Container do título SM */
+    .title-sm {
+        font-size: 42px;
+        color: #00aaff;
+        margin-bottom: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        user-select: none;
+    }
 
-        @keyframes pulseLogo {
-            0%, 100% {
-                text-shadow: 0 0 10px #00aaff, 0 0 20px #00d4ff;
-            }
-            50% {
-                text-shadow: 0 0 20px #00aaff, 0 0 30px #00d4ff;
-            }
-        }
+    /* Letra S normal */
+    .title-sm .s {
+        font-family: 'Orbitron', sans-serif;
+        color: #00aaff;
+        text-shadow: 0 0 8px #00d4ff;
+    }
 
-        /* Título SM estilizado */
-        .title-sm {
-            font-size: 36px;
-            color: #00aaff;
-            margin-bottom: 25px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 6px;
-            font-weight: 700;
-            user-select: none;
-        }
+    /* Letra M estilo BMW */
+    .title-sm .m {
+        position: relative;
+        width: 80px;
+        height: 60px;
+        display: inline-block;
+        /* um pouco mais ousado */
+        filter: drop-shadow(0 0 5px #007bff);
+    }
 
-        .title-sm .s {
-            /* Letra S normal */
-            text-shadow: 0 0 8px #00d4ff;
-        }
+    /* As 3 faixas coloridas inclinadas */
+    .title-sm .m div {
+        position: absolute;
+        bottom: 0;
+        width: 18px;
+        height: 60px;
+        clip-path: polygon(15% 0, 85% 0, 100% 100%, 0% 100%);
+        /* formato triangular com base maior na parte de baixo */
+        transform-origin: bottom left;
+        border-radius: 2px;
+    }
 
-        .title-sm .m {
-            /* Letra M estilizada com inclinação e cortes tipo BMW */
-            position: relative;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 900;
-            font-size: 42px;
-            color: #0088cc;
-            text-shadow: 0 0 10px #00aaff, 0 0 20px #00d4ff;
-            transform: skew(-15deg);
-            letter-spacing: 2px;
-        }
+    /* Azul escuro - faixa esquerda */
+    .title-sm .m .stripe1 {
+        left: 0;
+        background: #0063b1;
+        transform: skew(-20deg);
+        box-shadow: 0 0 10px #0063b1;
+    }
 
-        .title-sm .m::before,
-        .title-sm .m::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 6px;
-            background: linear-gradient(45deg, #00d4ff, #0088cc);
-            border-radius: 2px;
-            box-shadow: 0 0 8px #00aaff;
-        }
+    /* Azul claro - faixa do meio */
+    .title-sm .m .stripe2 {
+        left: 18px;
+        background: #00aaff;
+        transform: skew(-20deg);
+        box-shadow: 0 0 10px #00aaff;
+    }
 
-        .title-sm .m::before {
-            left: 8px;
-            transform: skew(15deg);
-        }
+    /* Vermelho - faixa direita */
+    .title-sm .m .stripe3 {
+        left: 36px;
+        background: #ff3c3c;
+        transform: skew(-20deg);
+        box-shadow: 0 0 10px #ff3c3c;
+    }
 
-        .title-sm .m::after {
-            right: 8px;
-            transform: skew(15deg);
-        }
+    /* Traços pretos no M para o efeito BMW */
+    .title-sm .m::before, 
+    .title-sm .m::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 12px;
+        height: 60px;
+        background: #111;
+        border-radius: 2px;
+        clip-path: polygon(20% 0, 80% 0, 100% 100%, 0% 100%);
+        box-shadow: inset 0 0 10px #000;
+    }
 
-        /* Caixa de informações para o cliente */
-        .info-client {
-            background-color: #0a0a0a;
-            border: 2px solid #00aaff;
-            border-radius: 12px;
-            padding: 15px 20px;
-            margin-bottom: 25px;
-            text-align: left;
-            color: #99dfff;
-            font-size: 14px;
-            box-shadow: 0 0 10px rgba(0, 170, 255, 0.6);
-        }
+    .title-sm .m::before {
+        left: 54px;
+        transform: skew(-20deg);
+        z-index: 2;
+    }
 
-        .info-client h3 {
-            margin-top: 0;
-            color: #00aaff;
-            text-shadow: 0 0 5px #00aaff;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
+    .title-sm .m::after {
+        left: 66px;
+        width: 14px;
+        background: linear-gradient(135deg, #111, #333);
+        clip-path: polygon(30% 0, 70% 0, 100% 100%, 0% 100%);
+        transform: skew(-20deg);
+        z-index: 2;
+    }
 
-        /* Seja Bem-vindo */
-        .welcome-msg {
-            color: #00d4ff;
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            text-shadow: 0 0 12px #00d4ff;
-        }
+    /* Info para o cliente */
+    .info-client {
+        background-color: #0a0a0a;
+        border: 2px solid #007bff;
+        border-radius: 12px;
+        padding: 15px 20px;
+        margin-bottom: 25px;
+        text-align: left;
+        color: #99dfff;
+        font-size: 14px;
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
+    }
 
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 14px;
-            margin: 10px 0;
-            background-color: #1b1b1b;
-            border: 1px solid #333;
-            border-radius: 10px;
-            color: #fff;
-            font-size: 15px;
-            transition: 0.3s ease;
-            box-shadow: inset 0 0 5px #000;
-        }
+    .info-client h3 {
+        margin-top: 0;
+        color: #007bff;
+        text-shadow: 0 0 5px #007bff;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
 
-        input[type="text"]:focus,
-        input[type="password"]:focus {
-            outline: none;
-            border-color: #00aaff;
-            box-shadow: 0 0 8px #00aaff;
-        }
+    .welcome-msg {
+        color: #00d4ff;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        text-shadow: 0 0 12px #00d4ff;
+    }
 
-        input::placeholder {
-            color: #888;
-        }
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 14px;
+        margin: 10px 0;
+        background-color: #1b1b1b;
+        border: 1px solid #333;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 15px;
+        transition: 0.3s ease;
+        box-shadow: inset 0 0 5px #000;
+    }
 
-        button {
-            width: 100%;
-            padding: 14px;
-            background-color: #00aaff;
-            color: #0d0d0d;
-            font-weight: bold;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: 0.3s ease-in-out;
-            box-shadow: 0 0 10px #00aaff;
-        }
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 8px #007bff;
+    }
 
-        button:hover {
-            background-color: #0088cc;
-            box-shadow: 0 0 16px #00aaff, 0 0 32px #00d4ff;
-            color: #f0f0f0;
-        }
-    </style>
+    input::placeholder {
+        color: #888;
+    }
+
+    button {
+        width: 100%;
+        padding: 14px;
+        background-color: #007bff;
+        color: #0d0d0d;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s ease-in-out;
+        box-shadow: 0 0 10px #007bff;
+    }
+
+    button:hover {
+        background-color: #005bb5;
+        box-shadow: 0 0 16px #007bff, 0 0 32px #00d4ff;
+        color: #f0f0f0;
+    }
+</style>
 </head>
 <body>
     <div class="background">
@@ -217,10 +237,13 @@
     </div>
 
     <div class="login-container">
-        <div class="logo">S</div>
         <div class="title-sm">
             <span class="s">S</span>
-            <span class="m">M</span>
+            <span class="m">
+                <div class="stripe1"></div>
+                <div class="stripe2"></div>
+                <div class="stripe3"></div>
+            </span>
         </div>
 
         <div class="welcome-msg">Seja bem-vindo!</div>
