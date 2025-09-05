@@ -330,6 +330,11 @@
             font-size: 12px;
         }
 
+        .title-container {
+            margin-bottom: 25px; /* Aumentei a margem inferior para descer o título */
+            padding-top: 10px; /* Adicionei um padding superior */
+        }
+
         @media (max-width: 800px) {
             .login-container {
                 flex-direction: column;
@@ -346,6 +351,11 @@
             
             .login-left {
                 border-bottom: 1px solid rgba(91, 206, 250, 0.2);
+            }
+
+            .title-container {
+                margin-bottom: 20px;
+                padding-top: 5px;
             }
         }
     </style>
@@ -369,8 +379,10 @@
             </div>
             
             <div class="login-right">
-                <h1>Acesso Restrito</h1>
-                <p class="subtitle">Entre com suas credenciais</p>
+                <div class="title-container">
+                    <h1>Acesso Restrito</h1>
+                    <p class="subtitle">Entre com suas credenciais</p>
+                </div>
                 
                 <form id="loginForm" class="login-form">
                     <div class="input-group">
@@ -464,7 +476,7 @@
             
             function createParticles() {
                 const particlesContainer = document.getElementById('particles');
-                const colors = ['#5BCEFA', '#F5A9B8', '#FFFFFF', '#B8F5A9'];
+                const colors = ['#5BCEFA', '#F5A9B8', '#FFFFFF, #B8F5A9'];
                 
                 for (let i = 0; i < 30; i++) {
                     const particle = document.createElement('div');
