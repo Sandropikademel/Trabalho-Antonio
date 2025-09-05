@@ -83,10 +83,56 @@
             }
         }
 
-        .login-container h2 {
-            color: #ffffff;
-            margin-bottom: 15px;
+        /* Título SM estilizado */
+        .title-sm {
+            font-size: 36px;
+            color: #00aaff;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            font-weight: 700;
+            user-select: none;
+        }
+
+        .title-sm .s {
+            /* Letra S normal */
             text-shadow: 0 0 8px #00d4ff;
+        }
+
+        .title-sm .m {
+            /* Letra M estilizada com inclinação e cortes tipo BMW */
+            position: relative;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 42px;
+            color: #0088cc;
+            text-shadow: 0 0 10px #00aaff, 0 0 20px #00d4ff;
+            transform: skew(-15deg);
+            letter-spacing: 2px;
+        }
+
+        .title-sm .m::before,
+        .title-sm .m::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background: linear-gradient(45deg, #00d4ff, #0088cc);
+            border-radius: 2px;
+            box-shadow: 0 0 8px #00aaff;
+        }
+
+        .title-sm .m::before {
+            left: 8px;
+            transform: skew(15deg);
+        }
+
+        .title-sm .m::after {
+            right: 8px;
+            transform: skew(15deg);
         }
 
         /* Caixa de informações para o cliente */
@@ -172,7 +218,10 @@
 
     <div class="login-container">
         <div class="logo">S</div>
-        <h2>Sandro Motors</h2>
+        <div class="title-sm">
+            <span class="s">S</span>
+            <span class="m">M</span>
+        </div>
 
         <div class="welcome-msg">Seja bem-vindo!</div>
 
