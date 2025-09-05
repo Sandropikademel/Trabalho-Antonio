@@ -3,7 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <title>Login - Sandro Motors</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilo geral */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: #0f0f0f;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* Fundo animado com bolinhas coloridas */
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #0d0d0d;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .circles::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background-image: radial-gradient(circle, #ff0055 2px, transparent 2px),
+                              radial-gradient(circle, #00ffe0 2px, transparent 2px),
+                              radial-gradient(circle, #ffd500 2px, transparent 2px),
+                              radial-gradient(circle, #00aaff 2px, transparent 2px);
+            background-size: 60px 60px;
+            animation: moveDots 12s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes moveDots {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-60px, -60px); }
+        }
+
+        /* Caixa de login */
+        .login-container {
+            position: relative;
+            z-index: 1;
+            background-color: rgba(10, 10, 10, 0.9);
+            padding: 50px 40px;
+            border-radius: 16px;
+            box-shadow: 0 0 25px rgba(255, 0, 85, 0.4);
+            text-align: center;
+            width: 340px;
+            margin: auto;
+            top: 50%;
+            transform: translateY(-50%);
+            border-top: 4px solid #ff0055;
+            border-bottom: 4px solid #00ffe0;
+        }
+
+        /* LOGO "S" estilizado */
+        .logo {
+            font-size: 48px;
+            color: #ff0055;
+            text-shadow: 0 0 12px #ff0055, 0 0 20px #ff0077;
+            font-weight: bold;
+            margin-bottom: 10px;
+            animation: pulseLogo 2s infinite;
+        }
+
+        @keyframes pulseLogo {
+            0%, 100% {
+                text-shadow: 0 0 10px #ff0055, 0 0 20px #ff0077;
+            }
+            50% {
+                text-shadow: 0 0 20px #ff0055, 0 0 30px #ff0077;
+            }
+        }
+
+        .login-container h2 {
+            color: #ffffff;
+            margin-bottom: 25px;
+            text-shadow: 0 0 8px #00ffe0;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            background-color: #1b1b1b;
+            border: 1px solid #333;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 15px;
+            transition: 0.3s ease;
+            box-shadow: inset 0 0 5px #000;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #00ffe0;
+            box-shadow: 0 0 8px #00ffe0;
+        }
+
+        input::placeholder {
+            color: #888;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #ff0055;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s ease-in-out;
+            box-shadow: 0 0 10px #ff0055;
+        }
+
+        button:hover {
+            background-color: #e60044;
+            box-shadow: 0 0 16px #ff0055, 0 0 32px #ff0077;
+        }
+    </style>
 </head>
 <body>
     <div class="background">
@@ -11,6 +139,7 @@
     </div>
 
     <div class="login-container">
+        <div class="logo">S</div>
         <h2>Sandro Motors</h2>
         <form id="loginForm">
             <input type="text" id="username" placeholder="Usuário" required>
@@ -19,6 +148,19 @@
         </form>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            if (username === "Sandro" && password === "Sandro2025") {
+                alert("✅ Bem-vindo à Sandro Motors!");
+            } else {
+                alert("❌ Usuário ou senha incorretos.");
+            }
+        });
+    </script>
 </body>
 </html>
