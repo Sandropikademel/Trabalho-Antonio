@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Login - Sandro Motors</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
 
     <style>
         /* Estilo geral */
@@ -15,6 +15,7 @@
             background: #0f0f0f;
             overflow: hidden;
             height: 100vh;
+            color: #ccc;
         }
 
         /* Fundo animado com bolinhas coloridas */
@@ -32,9 +33,9 @@
             position: absolute;
             width: 200%;
             height: 200%;
-            background-image: radial-gradient(circle, #ff0055 2px, transparent 2px),
+            background-image: radial-gradient(circle, #00ff88 2px, transparent 2px),
                               radial-gradient(circle, #00ffe0 2px, transparent 2px),
-                              radial-gradient(circle, #ffd500 2px, transparent 2px),
+                              radial-gradient(circle, #a0ff00 2px, transparent 2px),
                               radial-gradient(circle, #00aaff 2px, transparent 2px);
             background-size: 60px 60px;
             animation: moveDots 12s linear infinite;
@@ -51,23 +52,23 @@
             position: relative;
             z-index: 1;
             background-color: rgba(10, 10, 10, 0.9);
-            padding: 50px 40px;
+            padding: 50px 40px 30px 40px;
             border-radius: 16px;
-            box-shadow: 0 0 25px rgba(255, 0, 85, 0.4);
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.4);
             text-align: center;
-            width: 340px;
+            width: 360px;
             margin: auto;
             top: 50%;
             transform: translateY(-50%);
-            border-top: 4px solid #ff0055;
-            border-bottom: 4px solid #00ffe0;
+            border-top: 4px solid #00ff88;
+            border-bottom: 4px solid #00aaff;
         }
 
         /* LOGO "S" estilizado */
         .logo {
             font-size: 48px;
-            color: #ff0055;
-            text-shadow: 0 0 12px #ff0055, 0 0 20px #ff0077;
+            color: #00ff88;
+            text-shadow: 0 0 12px #00ff88, 0 0 20px #00ffa0;
             font-weight: bold;
             margin-bottom: 10px;
             animation: pulseLogo 2s infinite;
@@ -75,17 +76,38 @@
 
         @keyframes pulseLogo {
             0%, 100% {
-                text-shadow: 0 0 10px #ff0055, 0 0 20px #ff0077;
+                text-shadow: 0 0 10px #00ff88, 0 0 20px #00ffa0;
             }
             50% {
-                text-shadow: 0 0 20px #ff0055, 0 0 30px #ff0077;
+                text-shadow: 0 0 20px #00ff88, 0 0 30px #00ffa0;
             }
         }
 
         .login-container h2 {
             color: #ffffff;
-            margin-bottom: 25px;
-            text-shadow: 0 0 8px #00ffe0;
+            margin-bottom: 15px;
+            text-shadow: 0 0 8px #00aaff;
+        }
+
+        /* Caixa de informações para o cliente */
+        .info-client {
+            background-color: #0a0a0a;
+            border: 2px solid #00ff88;
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            text-align: left;
+            color: #aaffcc;
+            font-size: 14px;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+        }
+
+        .info-client h3 {
+            margin-top: 0;
+            color: #00ff88;
+            text-shadow: 0 0 5px #00ff88;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
 
         input[type="text"],
@@ -105,8 +127,8 @@
         input[type="text"]:focus,
         input[type="password"]:focus {
             outline: none;
-            border-color: #00ffe0;
-            box-shadow: 0 0 8px #00ffe0;
+            border-color: #00ff88;
+            box-shadow: 0 0 8px #00ff88;
         }
 
         input::placeholder {
@@ -116,20 +138,21 @@
         button {
             width: 100%;
             padding: 14px;
-            background-color: #ff0055;
-            color: white;
+            background-color: #00ff88;
+            color: #0d0d0d;
             font-weight: bold;
             border: none;
             border-radius: 10px;
             cursor: pointer;
             font-size: 16px;
             transition: 0.3s ease-in-out;
-            box-shadow: 0 0 10px #ff0055;
+            box-shadow: 0 0 10px #00ff88;
         }
 
         button:hover {
-            background-color: #e60044;
-            box-shadow: 0 0 16px #ff0055, 0 0 32px #ff0077;
+            background-color: #00cc6a;
+            box-shadow: 0 0 16px #00ff88, 0 0 32px #00ffa0;
+            color: #f0f0f0;
         }
     </style>
 </head>
@@ -141,9 +164,20 @@
     <div class="login-container">
         <div class="logo">S</div>
         <h2>Sandro Motors</h2>
+
+        <div class="info-client">
+            <h3>Informações importantes para o cliente</h3>
+            <ul>
+                <li>Verifique se seu usuário e senha estão corretos antes de entrar.</li>
+                <li>Por motivos de segurança, não compartilhe suas credenciais com terceiros.</li>
+                <li>Se não possui cadastro, entre em contato com nosso suporte.</li>
+                <li>Seu acesso será monitorado para garantir a segurança dos nossos serviços.</li>
+            </ul>
+        </div>
+
         <form id="loginForm">
-            <input type="text" id="username" placeholder="Usuário" required>
-            <input type="password" id="password" placeholder="Senha" required>
+            <input type="text" id="username" placeholder="Usuário" required />
+            <input type="password" id="password" placeholder="Senha" required />
             <button type="submit">Entrar</button>
         </form>
     </div>
