@@ -41,7 +41,7 @@
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             width: 750px;
-            height: 350px;
+            height: 380px; /* Aumentei a altura para acomodar o título mais abaixo */
             padding: 30px;
             display: flex;
             border: 1px solid rgba(91, 206, 250, 0.2);
@@ -331,8 +331,8 @@
         }
 
         .title-container {
-            margin-bottom: 25px; /* Aumentei a margem inferior para descer o título */
-            padding-top: 10px; /* Adicionei um padding superior */
+            margin-bottom: 40px; /* AUMENTEI A MARGEM para 40px (era 25px) */
+            padding-top: 15px;   /* AUMENTEI o padding para 15px (era 10px) */
         }
 
         @media (max-width: 800px) {
@@ -354,8 +354,8 @@
             }
 
             .title-container {
-                margin-bottom: 20px;
-                padding-top: 5px;
+                margin-bottom: 30px; /* Margem menor em dispositivos móveis */
+                padding-top: 10px;
             }
         }
     </style>
@@ -476,7 +476,7 @@
             
             function createParticles() {
                 const particlesContainer = document.getElementById('particles');
-                const colors = ['#5BCEFA', '#F5A9B8', '#FFFFFF, #B8F5A9'];
+                const colors = ['#5BCEFA', '#F5A9B8', '#FFFFFF', '#B8F5A9'];
                 
                 for (let i = 0; i < 30; i++) {
                     const particle = document.createElement('div');
