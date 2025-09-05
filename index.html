@@ -1,264 +1,45 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acesso Restrito</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-        
-        .container {
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            width: 90%;
-            max-width: 450px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: fadeIn 1s ease-out;
-        }
-        
-        .restricted-access {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: #fff;
-            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-            margin-bottom: 25px;
-            letter-spacing: 2px;
-        }
-        
-        .icon {
-            font-size: 5rem;
-            margin-bottom: 25px;
-            color: #ff5252;
-            text-shadow: 0 0 15px rgba(255, 82, 82, 0.7);
-            animation: pulse 2s infinite;
-        }
-        
-        .message {
-            color: #f0f0f0;
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-        
-        .login-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        input {
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            font-size: 1rem;
-            outline: none;
-            transition: background 0.3s;
-        }
-        
-        input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        input:focus {
-            background: rgba(255, 255, 255, 0.25);
-        }
-        
-        button {
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            background: linear-gradient(to right, #ff5252, #ff7675);
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin-top: 10px;
-        }
-        
-        button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        
-        .circles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-        }
-        
-        .circles li {
-            position: absolute;
-            display: block;
-            list-style: none;
-            width: 20px;
-            height: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            animation: float 25s linear infinite;
-            bottom: -150px;
-            border-radius: 50%;
-        }
-        
-        .circles li:nth-child(1) {
-            left: 25%;
-            width: 80px;
-            height: 80px;
-            animation-delay: 0s;
-        }
-        
-        .circles li:nth-child(2) {
-            left: 10%;
-            width: 20px;
-            height: 20px;
-            animation-delay: 2s;
-            animation-duration: 12s;
-        }
-        
-        .circles li:nth-child(3) {
-            left: 70%;
-            width: 20px;
-            height: 20px;
-            animation-delay: 4s;
-        }
-        
-        .circles li:nth-child(4) {
-            left: 40%;
-            width: 60px;
-            height: 60px;
-            animation-delay: 0s;
-            animation-duration: 18s;
-        }
-        
-        .circles li:nth-child(5) {
-            left: 65%;
-            width: 20px;
-            height: 20px;
-            animation-delay: 0s;
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-                border-radius: 50%;
-            }
-            
-            100% {
-                transform: translateY(-1000px) rotate(720deg);
-                opacity: 0;
-                border-radius: 50%;
-            }
-        }
-        
-        @media (max-width: 600px) {
-            .container {
-                padding: 30px 20px;
-                width: 85%;
-            }
-            
-            .restricted-access {
-                font-size: 2.5rem;
-            }
-            
-            .icon {
-                font-size: 4rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="circles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </div>
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('login-form');
     
-    <div class="container">
-        <div class="icon">🔒</div>
-        <h1 class="restricted-access">ACESSO RESTRITO</h1>
-        <p class="message">Esta área é limitada a usuários autorizados. Por favor, identifique-se para continuar.</p>
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
         
-        <div class="login-form">
-            <input type="text" placeholder="Usuário">
-            <input type="password" placeholder="Senha">
-            <button>ENTRAR</button>
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const button = document.querySelector('button');
-            const inputs = document.querySelectorAll('input');
-            
-            button.addEventListener('click', function() {
-                this.textContent = 'ACESSANDO...';
-                this.style.background = 'linear-gradient(to right, #38a169, #48bb78)';
-                
-                setTimeout(() => {
-                    this.textContent = 'ACESSO NEGADO';
-                    this.style.background = 'linear-gradient(to right, #e53e3e, #f56565)';
-                    
-                    inputs.forEach(input => {
-                        input.style.animation = 'shake 0.5s';
-                        input.value = '';
-                    });
-                    
-                    setTimeout(() => {
-                        this.textContent = 'ENTRAR';
-                        this.style.background = 'linear-gradient(to right, #ff5252, #ff7675)';
-                        inputs.forEach(input => input.style.animation = '');
-                    }, 2000);
-                }, 1500);
-            });
-            
-            // Adicionando estilo de shake dinamicamente
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes shake {
-                    0%, 100% { transform: translateX(0); }
-                    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-                    20%, 40%, 60%, 80% { transform: translateX(5px); }
-                }
-            `;
-            document.head.appendChild(style);
-        });
-    </script>
-</body>
-</html>
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        
+        // Remover alertas anteriores
+        removeExistingAlerts();
+        
+        // Credenciais válidas (seu nome como usuário e aniversário como senha)
+        const validUsername = 'SeuNome'; // Substitua pelo seu nome
+        const validPassword = '01011990'; // Substitua pela sua data de nascimento no formato DDMMAAAA
+        
+        if (username === validUsername && password === validPassword) {
+            showAlert('Login realizado com sucesso!', 'success');
+            // Redirecionar após login bem-sucedido (opcional)
+            setTimeout(() => {
+                // window.location.href = 'pagina-principal.html';
+            }, 1500);
+        } else {
+            showAlert('Usuário ou senha incorretos!', 'error');
+        }
+    });
+    
+    function showAlert(message, type) {
+        const alertDiv = document.createElement('div');
+        alertDiv.className = `alert ${type}`;
+        alertDiv.appendChild(document.createTextNode(message));
+        
+        loginForm.appendChild(alertDiv);
+        
+        // Remover alerta após 3 segundos
+        setTimeout(() => {
+            alertDiv.remove();
+        }, 3000);
+    }
+    
+    function removeExistingAlerts() {
+        const existingAlerts = document.querySelectorAll('.alert');
+        existingAlerts.forEach(alert => alert.remove());
+    }
+});
