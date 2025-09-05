@@ -32,9 +32,10 @@
             background: rgba(18, 18, 30, 0.9);
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            width: 400px;
-            padding: 40px;
-            text-align: center;
+            width: 750px;  /* Largura maior para o layout horizontal */
+            height: 350px; /* Altura menor */
+            padding: 30px;
+            display: flex;
             border: 1px solid rgba(91, 206, 250, 0.2);
             position: relative;
             overflow: hidden;
@@ -53,26 +54,38 @@
             z-index: -1;
         }
 
-        .login-header {
-            margin-bottom: 30px;
-            position: relative;
+        .login-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-right: 30px;
+            border-right: 1px solid rgba(91, 206, 250, 0.2);
+        }
+
+        .login-right {
+            flex: 1;
+            padding-left: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .logo {
             width: 90px;
             height: 90px;
-            margin-bottom: 15px;
             border-radius: 50%;
             background: linear-gradient(145deg, #1c1c32, #0f0f1e);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 0 auto 15px;
             font-size: 35px;
             color: #5BCEFA;
             position: relative;
             border: 2px solid rgba(91, 206, 250, 0.3);
+            margin-bottom: 20px;
         }
 
         .logo::after {
@@ -98,12 +111,14 @@
             margin-bottom: 5px;
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
             font-weight: 600;
+            text-align: center;
         }
 
         .subtitle {
             color: #a0a0cc;
             font-size: 14px;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         .login-form {
@@ -112,14 +127,14 @@
         }
 
         .input-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-align: left;
             position: relative;
         }
 
         label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: #a0a0cc;
             font-weight: 500;
             font-size: 14px;
@@ -129,9 +144,9 @@
 
         input {
             width: 100%;
-            padding: 14px 15px 14px 45px;
+            padding: 12px 15px 12px 45px;
             border: 2px solid rgba(91, 206, 250, 0.2);
-            border-radius: 12px;
+            border-radius: 10px;
             font-size: 16px;
             transition: all 0.3s;
             background: rgba(15, 15, 25, 0.7);
@@ -147,7 +162,7 @@
         .input-icon {
             position: absolute;
             left: 15px;
-            top: 42px;
+            top: 38px;
             color: #5BCEFA;
             font-size: 18px;
         }
@@ -156,8 +171,8 @@
             background: linear-gradient(45deg, #5BCEFA, #F5A9B8);
             color: #0a0a14;
             border: none;
-            padding: 16px;
-            border-radius: 12px;
+            padding: 14px;
+            border-radius: 10px;
             font-size: 16px;
             cursor: pointer;
             transition: all 0.3s;
@@ -195,12 +210,13 @@
         }
 
         .message {
-            margin-top: 20px;
-            padding: 14px;
-            border-radius: 12px;
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 10px;
             font-weight: 500;
             transition: all 0.3s;
             text-align: center;
+            font-size: 14px;
         }
 
         .message.success {
@@ -224,7 +240,7 @@
         .pride-bar {
             height: 6px;
             border-radius: 3px;
-            margin: 20px 0;
+            margin: 15px 0;
             background: linear-gradient(to right, 
                 #5BCEFA, #F5A9B8, #FFFFFF, #B8F5A9, #5BCEFA);
             box-shadow: 0 0 10px rgba(91, 206, 250, 0.5);
@@ -233,7 +249,7 @@
         .hint {
             font-size: 12px;
             color: #5BCEFA;
-            margin-top: 20px;
+            margin-top: 15px;
             text-align: center;
             opacity: 0.7;
         }
@@ -268,7 +284,7 @@
         .toggle-password {
             position: absolute;
             right: 15px;
-            top: 42px;
+            top: 38px;
             color: #a0a0cc;
             cursor: pointer;
             font-size: 18px;
@@ -278,44 +294,99 @@
         .toggle-password:hover {
             color: #5BCEFA;
         }
+
+        .welcome-text {
+            color: #e0e0ff;
+            font-size: 16px;
+            text-align: center;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .feature-list li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #a0a0cc;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li i {
+            color: #5BCEFA;
+            margin-right: 10px;
+            font-size: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+                width: 90%;
+                height: auto;
+                padding: 20px;
+            }
+            
+            .login-left, .login-right {
+                padding: 20px;
+                border: none;
+            }
+            
+            .login-left {
+                border-bottom: 1px solid rgba(91, 206, 250, 0.2);
+            }
+        }
     </style>
 </head>
 <body>
     <div class="particles" id="particles"></div>
     
     <div class="login-container">
-        <div class="login-header">
+        <div class="login-left">
             <div class="logo">S</div>
-            <h1>Acesso ao Sistema</h1>
-            <p class="subtitle">Entre com suas credenciais</p>
+            <h1>Sistema Sandro</h1>
+            <div class="pride-bar"></div>
+            <p class="welcome-text">Bem-vindo ao seu sistema personalizado. Faça login para acessar recursos exclusivos.</p>
+            
+            <ul class="feature-list">
+                <li><i class="fas fa-check-circle"></i> Painel personalizado</li>
+                <li><i class="fas fa-check-circle"></i> Recursos exclusivos</li>
+                <li><i class="fas fa-check-circle"></i> Interface moderna</li>
+            </ul>
         </div>
         
-        <div class="pride-bar"></div>
-        
-        <form id="loginForm" class="login-form">
-            <div class="input-group">
-                <label for="username"><i class="fas fa-user"></i> Usuário</label>
-                <i class="fas fa-user input-icon"></i>
-                <input type="text" id="username" name="username" placeholder="Digite seu usuário" required>
-            </div>
+        <div class="login-right">
+            <h1>Acesso Restrito</h1>
+            <p class="subtitle">Entre com suas credenciais</p>
             
-            <div class="input-group">
-                <label for="password"><i class="fas fa-lock"></i> Senha</label>
-                <i class="fas fa-lock input-icon"></i>
-                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
-                <span class="toggle-password" id="togglePassword">
-                    <i class="fas fa-eye"></i>
-                </span>
-            </div>
+            <form id="loginForm" class="login-form">
+                <div class="input-group">
+                    <label for="username"><i class="fas fa-user"></i> Usuário</label>
+                    <i class="fas fa-user input-icon"></i>
+                    <input type="text" id="username" name="username" placeholder="Digite seu usuário" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password"><i class="fas fa-lock"></i> Senha</label>
+                    <i class="fas fa-lock input-icon"></i>
+                    <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                    <span class="toggle-password" id="togglePassword">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                </div>
+                
+                <button type="submit" id="loginButton">
+                    <i class="fas fa-sign-in-alt"></i> Entrar
+                </button>
+            </form>
             
-            <button type="submit" id="loginButton">
-                <i class="fas fa-sign-in-alt"></i> Entrar
-            </button>
-        </form>
-        
-        <div id="message" class="message hidden"></div>
-        
-        <p class="hint">Dica: Use "sandro" como usuário e "sandro2025" como senha</p>
+            <div id="message" class="message hidden"></div>
+            
+            <p class="hint">Dica: Use "sandro" como usuário e "sandro2025" como senha</p>
+        </div>
     </div>
 
     <script>
