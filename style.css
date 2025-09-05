@@ -1,51 +1,79 @@
-/* Fundo personalizado */
+/* Fonte moderna opcional (Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+/* Corpo com estética dark */
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to right, #1f4037, #99f2c8);
+    font-family: 'Orbitron', sans-serif;
+    background: radial-gradient(circle at top, #0f0f0f, #050505);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Caixa de login destacada */
+/* Caixa com visual neon */
 .login-box {
-    background-color: #ffffff;
+    background: #1a1a1a;
     padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
     text-align: center;
-    width: 300px;
+    width: 320px;
+    border: 1px solid #0ff;
+    animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        box-shadow: 0 0 15px #0ff, 0 0 30px #0ff inset;
+    }
+    to {
+        box-shadow: 0 0 25px #0ff, 0 0 50px #0ff inset;
+    }
 }
 
 .login-box h2 {
-    margin-bottom: 20px;
-    color: #1f4037;
+    margin-bottom: 25px;
+    color: #00ffe7;
+    text-shadow: 0 0 10px #0ff;
 }
 
+/* Inputs */
 input[type="text"],
 input[type="password"] {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    background-color: #0d0d0d;
+    border: 1px solid #0ff;
+    border-radius: 8px;
+    color: #00ffe7;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
 }
 
+input[type="text"]:focus,
+input[type="password"]:focus {
+    box-shadow: 0 0 10px #0ff;
+}
+
+/* Botão */
 button {
     width: 100%;
-    padding: 10px;
-    background-color: #1f4037;
-    color: white;
+    padding: 12px;
+    background-color: #0ff;
+    color: #0d0d0d;
     font-weight: bold;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: 0.3s ease-in-out;
 }
 
 button:hover {
-    background-color: #16332a;
+    background-color: #00ffe7;
+    box-shadow: 0 0 15px #0ff;
 }

@@ -6,8 +6,7 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
 
     if (username === "Sandro" && password === "Sandro2025") {
         alert("✅ Login realizado com sucesso! Bem-vindo, Sandro.");
-        // Aqui você pode redirecionar se quiser
-        // window.location.href = "dashboard.html";
+        // window.location.href = "dashboard.html"; // Redirecionamento opcional
     } else {
         alert("❌ Usuário ou senha incorretos. Tente novamente.");
     }
