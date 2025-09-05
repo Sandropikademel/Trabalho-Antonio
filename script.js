@@ -6,8 +6,7 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
 
     if (username === "Sandro" && password === "Sandro2025") {
         alert("✅ Bem-vindo à Sandro Motors!");
-        // window.location.href = "painel.html"; // Redirecionamento opcional
     } else {
-        alert("❌ Usuário ou senha inválidos. Tente novamente.");
+        alert("❌ Usuário ou senha incorretos.");
     }
 });

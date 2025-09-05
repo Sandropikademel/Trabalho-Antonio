@@ -1,36 +1,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
+/* Estilo geral */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Orbitron', sans-serif;
-    background: radial-gradient(circle at top, #0a0a0a, #1a1a1a);
+    overflow: hidden;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
+/* Fundo animado com bolinhas coloridas */
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #0d0d0d;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.circles {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.circles::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background-image: radial-gradient(circle, #e60000 2px, transparent 2px),
+                      radial-gradient(circle, #00ffd5 2px, transparent 2px),
+                      radial-gradient(circle, #ffcc00 2px, transparent 2px),
+                      radial-gradient(circle, #0099ff 2px, transparent 2px);
+    background-size: 60px 60px;
+    animation: moveDots 10s linear infinite;
+    opacity: 0.4;
+}
+
+@keyframes moveDots {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-60px, -60px); }
+}
+
+/* Caixa de login */
 .login-container {
-    background-color: #111;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.85);
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 0 25px rgba(255, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
     text-align: center;
-    width: 340px;
+    width: 320px;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
     border-top: 4px solid #e60000;
     border-bottom: 4px solid #e60000;
 }
 
-.logo {
-    width: 100px;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 5px #e60000);
-}
-
-h2 {
-    color: #f2f2f2;
+.login-container h2 {
+    color: #ffffff;
     margin-bottom: 25px;
+    text-shadow: 0 0 10px #e60000;
 }
 
 input[type="text"],
@@ -39,7 +73,7 @@ input[type="password"] {
     padding: 12px;
     margin: 10px 0;
     background-color: #1e1e1e;
-    border: 1px solid #444;
+    border: 1px solid #333;
     border-radius: 8px;
     color: #fff;
     font-size: 14px;
