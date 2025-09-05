@@ -20,20 +20,28 @@
             background-image: 
                 radial-gradient(circle at 15% 50%, rgba(28, 28, 50, 0.7) 0%, transparent 25%),
                 radial-gradient(circle at 85% 30%, rgba(28, 28, 50, 0.7) 0%, transparent 25%);
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
             color: #e0e0ff;
+            padding: 20px;
+        }
+
+        .login-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
         }
 
         .login-container {
             background: rgba(18, 18, 30, 0.9);
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            width: 750px;  /* Largura maior para o layout horizontal */
-            height: 350px; /* Altura menor */
+            width: 750px;
+            height: 350px;
             padding: 30px;
             display: flex;
             border: 1px solid rgba(91, 206, 250, 0.2);
@@ -322,11 +330,12 @@
             font-size: 12px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 800px) {
             .login-container {
                 flex-direction: column;
                 width: 90%;
                 height: auto;
+                max-width: 400px;
                 padding: 20px;
             }
             
@@ -344,48 +353,50 @@
 <body>
     <div class="particles" id="particles"></div>
     
-    <div class="login-container">
-        <div class="login-left">
-            <div class="logo">S</div>
-            <h1>Sistema Sandro</h1>
-            <div class="pride-bar"></div>
-            <p class="welcome-text">Bem-vindo ao seu sistema personalizado. Faça login para acessar recursos exclusivos.</p>
-            
-            <ul class="feature-list">
-                <li><i class="fas fa-check-circle"></i> Painel personalizado</li>
-                <li><i class="fas fa-check-circle"></i> Recursos exclusivos</li>
-                <li><i class="fas fa-check-circle"></i> Interface moderna</li>
-            </ul>
-        </div>
-        
-        <div class="login-right">
-            <h1>Acesso Restrito</h1>
-            <p class="subtitle">Entre com suas credenciais</p>
-            
-            <form id="loginForm" class="login-form">
-                <div class="input-group">
-                    <label for="username"><i class="fas fa-user"></i> Usuário</label>
-                    <i class="fas fa-user input-icon"></i>
-                    <input type="text" id="username" name="username" placeholder="Digite seu usuário" required>
-                </div>
+    <div class="login-wrapper">
+        <div class="login-container">
+            <div class="login-left">
+                <div class="logo">S</div>
+                <h1>Sistema Sandro</h1>
+                <div class="pride-bar"></div>
+                <p class="welcome-text">Bem-vindo ao seu sistema personalizado. Faça login para acessar recursos exclusivos.</p>
                 
-                <div class="input-group">
-                    <label for="password"><i class="fas fa-lock"></i> Senha</label>
-                    <i class="fas fa-lock input-icon"></i>
-                    <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
-                    <span class="toggle-password" id="togglePassword">
-                        <i class="fas fa-eye"></i>
-                    </span>
-                </div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Painel personalizado</li>
+                    <li><i class="fas fa-check-circle"></i> Recursos exclusivos</li>
+                    <li><i class="fas fa-check-circle"></i> Interface moderna</li>
+                </ul>
+            </div>
+            
+            <div class="login-right">
+                <h1>Acesso Restrito</h1>
+                <p class="subtitle">Entre com suas credenciais</p>
                 
-                <button type="submit" id="loginButton">
-                    <i class="fas fa-sign-in-alt"></i> Entrar
-                </button>
-            </form>
-            
-            <div id="message" class="message hidden"></div>
-            
-            <p class="hint">Dica: Use "sandro" como usuário e "sandro2025" como senha</p>
+                <form id="loginForm" class="login-form">
+                    <div class="input-group">
+                        <label for="username"><i class="fas fa-user"></i> Usuário</label>
+                        <i class="fas fa-user input-icon"></i>
+                        <input type="text" id="username" name="username" placeholder="Digite seu usuário" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="password"><i class="fas fa-lock"></i> Senha</label>
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                        <span class="toggle-password" id="togglePassword">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                    </div>
+                    
+                    <button type="submit" id="loginButton">
+                        <i class="fas fa-sign-in-alt"></i> Entrar
+                    </button>
+                </form>
+                
+                <div id="message" class="message hidden"></div>
+                
+                <p class="hint">Dica: Use "sandro" como usuário e "sandro2025" como senha</p>
+            </div>
         </div>
     </div>
 
