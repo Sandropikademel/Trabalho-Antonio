@@ -33,10 +33,10 @@
             position: absolute;
             width: 200%;
             height: 200%;
-            background-image: radial-gradient(circle, #00ff88 2px, transparent 2px),
-                              radial-gradient(circle, #00ffe0 2px, transparent 2px),
-                              radial-gradient(circle, #a0ff00 2px, transparent 2px),
-                              radial-gradient(circle, #00aaff 2px, transparent 2px);
+            background-image: radial-gradient(circle, #00aaff 2px, transparent 2px),
+                              radial-gradient(circle, #00d4ff 2px, transparent 2px),
+                              radial-gradient(circle, #3399ff 2px, transparent 2px),
+                              radial-gradient(circle, #0055cc 2px, transparent 2px);
             background-size: 60px 60px;
             animation: moveDots 12s linear infinite;
             opacity: 0.3;
@@ -54,21 +54,21 @@
             background-color: rgba(10, 10, 10, 0.9);
             padding: 50px 40px 30px 40px;
             border-radius: 16px;
-            box-shadow: 0 0 25px rgba(0, 255, 136, 0.4);
+            box-shadow: 0 0 25px rgba(0, 170, 255, 0.4);
             text-align: center;
             width: 360px;
             margin: auto;
             top: 50%;
             transform: translateY(-50%);
-            border-top: 4px solid #00ff88;
-            border-bottom: 4px solid #00aaff;
+            border-top: 4px solid #00aaff;
+            border-bottom: 4px solid #0055cc;
         }
 
         /* LOGO "S" estilizado */
         .logo {
             font-size: 48px;
-            color: #00ff88;
-            text-shadow: 0 0 12px #00ff88, 0 0 20px #00ffa0;
+            color: #00aaff;
+            text-shadow: 0 0 12px #00aaff, 0 0 20px #00d4ff;
             font-weight: bold;
             margin-bottom: 10px;
             animation: pulseLogo 2s infinite;
@@ -76,38 +76,47 @@
 
         @keyframes pulseLogo {
             0%, 100% {
-                text-shadow: 0 0 10px #00ff88, 0 0 20px #00ffa0;
+                text-shadow: 0 0 10px #00aaff, 0 0 20px #00d4ff;
             }
             50% {
-                text-shadow: 0 0 20px #00ff88, 0 0 30px #00ffa0;
+                text-shadow: 0 0 20px #00aaff, 0 0 30px #00d4ff;
             }
         }
 
         .login-container h2 {
             color: #ffffff;
             margin-bottom: 15px;
-            text-shadow: 0 0 8px #00aaff;
+            text-shadow: 0 0 8px #00d4ff;
         }
 
         /* Caixa de informações para o cliente */
         .info-client {
             background-color: #0a0a0a;
-            border: 2px solid #00ff88;
+            border: 2px solid #00aaff;
             border-radius: 12px;
             padding: 15px 20px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: left;
-            color: #aaffcc;
+            color: #99dfff;
             font-size: 14px;
-            box-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+            box-shadow: 0 0 10px rgba(0, 170, 255, 0.6);
         }
 
         .info-client h3 {
             margin-top: 0;
-            color: #00ff88;
-            text-shadow: 0 0 5px #00ff88;
+            color: #00aaff;
+            text-shadow: 0 0 5px #00aaff;
             font-weight: 600;
             margin-bottom: 10px;
+        }
+
+        /* Seja Bem-vindo */
+        .welcome-msg {
+            color: #00d4ff;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-shadow: 0 0 12px #00d4ff;
         }
 
         input[type="text"],
@@ -127,8 +136,8 @@
         input[type="text"]:focus,
         input[type="password"]:focus {
             outline: none;
-            border-color: #00ff88;
-            box-shadow: 0 0 8px #00ff88;
+            border-color: #00aaff;
+            box-shadow: 0 0 8px #00aaff;
         }
 
         input::placeholder {
@@ -138,7 +147,7 @@
         button {
             width: 100%;
             padding: 14px;
-            background-color: #00ff88;
+            background-color: #00aaff;
             color: #0d0d0d;
             font-weight: bold;
             border: none;
@@ -146,12 +155,12 @@
             cursor: pointer;
             font-size: 16px;
             transition: 0.3s ease-in-out;
-            box-shadow: 0 0 10px #00ff88;
+            box-shadow: 0 0 10px #00aaff;
         }
 
         button:hover {
-            background-color: #00cc6a;
-            box-shadow: 0 0 16px #00ff88, 0 0 32px #00ffa0;
+            background-color: #0088cc;
+            box-shadow: 0 0 16px #00aaff, 0 0 32px #00d4ff;
             color: #f0f0f0;
         }
     </style>
@@ -164,6 +173,8 @@
     <div class="login-container">
         <div class="logo">S</div>
         <h2>Sandro Motors</h2>
+
+        <div class="welcome-msg">Seja bem-vindo!</div>
 
         <div class="info-client">
             <h3>Informações importantes para o cliente</h3>
