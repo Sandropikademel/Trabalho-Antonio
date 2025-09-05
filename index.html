@@ -2,25 +2,31 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Login - Sandro Motors</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
-
 <style>
+    /* Reset básico */
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
     body {
         margin: 0;
         padding: 0;
         font-family: 'Orbitron', sans-serif;
         background: #0d0d0d;
-        overflow: hidden;
-        height: 100vh;
         color: #ccc;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .background {
-        position: absolute;
-        width: 100%;
-        height: 100%;
+        position: fixed;
+        inset: 0;
         background: #0d0d0d;
         overflow: hidden;
         z-index: 0;
@@ -31,10 +37,11 @@
         position: absolute;
         width: 200%;
         height: 200%;
-        background-image: radial-gradient(circle, #007bff 2px, transparent 2px),
-                          radial-gradient(circle, #00d4ff 2px, transparent 2px),
-                          radial-gradient(circle, #3399ff 2px, transparent 2px),
-                          radial-gradient(circle, #0055cc 2px, transparent 2px);
+        background-image:
+            radial-gradient(circle, #007bff 2px, transparent 2px),
+            radial-gradient(circle, #00d4ff 2px, transparent 2px),
+            radial-gradient(circle, #3399ff 2px, transparent 2px),
+            radial-gradient(circle, #0055cc 2px, transparent 2px);
         background-size: 60px 60px;
         animation: moveDots 12s linear infinite;
         opacity: 0.3;
@@ -52,16 +59,13 @@
         padding: 50px 40px 30px 40px;
         border-radius: 16px;
         box-shadow: 0 0 25px rgba(0, 123, 255, 0.4);
-        text-align: center;
         width: 360px;
-        margin: auto;
-        top: 50%;
-        transform: translateY(-50%);
+        text-align: center;
         border-top: 4px solid #007bff;
         border-bottom: 4px solid #004999;
     }
 
-    /* Container do título SM */
+    /* Título SM */
     .title-sm {
         font-size: 42px;
         color: #00aaff;
@@ -74,14 +78,13 @@
         user-select: none;
     }
 
-    /* Letra S normal */
     .title-sm .s {
         font-family: 'Orbitron', sans-serif;
         color: #00aaff;
         text-shadow: 0 0 8px #00d4ff;
+        line-height: 1;
     }
 
-    /* Letra M estilo BMW */
     .title-sm .m {
         position: relative;
         width: 80px;
@@ -90,7 +93,6 @@
         filter: drop-shadow(0 0 5px #007bff);
     }
 
-    /* As 3 faixas coloridas inclinadas */
     .title-sm .m div {
         position: absolute;
         bottom: 0;
@@ -101,7 +103,6 @@
         border-radius: 2px;
     }
 
-    /* Azul escuro - faixa esquerda */
     .title-sm .m .stripe1 {
         left: 0;
         background: #0063b1;
@@ -109,7 +110,6 @@
         box-shadow: 0 0 10px #0063b1;
     }
 
-    /* Azul claro - faixa do meio */
     .title-sm .m .stripe2 {
         left: 18px;
         background: #00aaff;
@@ -117,7 +117,6 @@
         box-shadow: 0 0 10px #00aaff;
     }
 
-    /* Vermelho - faixa direita */
     .title-sm .m .stripe3 {
         left: 36px;
         background: #ff3c3c;
@@ -125,8 +124,7 @@
         box-shadow: 0 0 10px #ff3c3c;
     }
 
-    /* Traços pretos no M para o efeito BMW */
-    .title-sm .m::before, 
+    .title-sm .m::before,
     .title-sm .m::after {
         content: '';
         position: absolute;
@@ -154,7 +152,14 @@
         z-index: 2;
     }
 
-    /* Info para o cliente */
+    .welcome-msg {
+        color: #00d4ff;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        text-shadow: 0 0 12px #00d4ff;
+    }
+
     .info-client {
         background-color: #0a0a0a;
         border: 2px solid #007bff;
@@ -175,12 +180,10 @@
         margin-bottom: 10px;
     }
 
-    .welcome-msg {
-        color: #00d4ff;
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 20px;
-        text-shadow: 0 0 12px #00d4ff;
+    .info-client ul {
+        padding-left: 20px;
+        margin: 0;
+        list-style-type: disc;
     }
 
     input[type="text"],
@@ -193,9 +196,9 @@
         border-radius: 10px;
         color: #fff;
         font-size: 15px;
-        transition: 0.3s ease;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
         box-shadow: inset 0 0 5px #000;
-        text-align: center; /* centraliza o texto */
+        text-align: center;
     }
 
     input[type="text"]:focus,
@@ -207,7 +210,7 @@
 
     input::placeholder {
         color: #888;
-        text-align: center; /* centraliza placeholder */
+        text-align: center;
     }
 
     button {
@@ -215,20 +218,22 @@
         padding: 14px;
         background-color: #007bff;
         color: #0d0d0d;
-        font-weight: bold;
+        font-weight: 700;
         border: none;
         border-radius: 10px;
         cursor: pointer;
         font-size: 16px;
-        transition: 0.3s ease-in-out;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
         box-shadow: 0 0 10px #007bff;
-        text-align: center; /* centraliza texto do botão */
+        text-align: center;
     }
 
-    button:hover {
+    button:hover,
+    button:focus {
         background-color: #005bb5;
         box-shadow: 0 0 16px #007bff, 0 0 32px #00d4ff;
         color: #f0f0f0;
+        outline: none;
     }
 </style>
 </head>
@@ -237,19 +242,19 @@
         <div class="circles"></div>
     </div>
 
-    <div class="login-container">
-        <div class="title-sm">
-            <span class="s">S</span>
-            <span class="m">
+    <main class="login-container" role="main" aria-label="Área de login Sandro Motors">
+        <header class="title-sm" aria-label="Logo Sandro Motors">
+            <span class="s" aria-hidden="true">S</span>
+            <span class="m" aria-hidden="true">
                 <div class="stripe1"></div>
                 <div class="stripe2"></div>
                 <div class="stripe3"></div>
             </span>
-        </div>
+        </header>
 
-        <div class="welcome-msg">Seja bem-vindo!</div>
+        <p class="welcome-msg" aria-live="polite">Seja bem-vindo!</p>
 
-        <div class="info-client">
+        <section class="info-client" aria-label="Informações importantes para o cliente">
             <h3>Informações importantes para o cliente</h3>
             <ul>
                 <li>Verifique se seu usuário e senha estão corretos antes de entrar.</li>
@@ -257,14 +262,32 @@
                 <li>Se não possui cadastro, entre em contato com nosso suporte.</li>
                 <li>Seu acesso será monitorado para garantir a segurança dos nossos serviços.</li>
             </ul>
-        </div>
+        </section>
 
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="Usuário" required />
-            <input type="password" id="password" placeholder="Senha" required />
-            <button type="submit">Entrar</button>
+        <form id="loginForm" novalidate aria-describedby="formHelp" aria-label="Formulário de login">
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Usuário"
+                required
+                autocomplete="username"
+                aria-required="true"
+                aria-describedby="usernameHelp"
+            />
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Senha"
+                required
+                autocomplete="current-password"
+                aria-required="true"
+                aria-describedby="passwordHelp"
+            />
+            <button type="submit" aria-label="Entrar no sistema">Entrar</button>
         </form>
-    </div>
+    </main>
 
     <script>
         document.getElementById("loginForm").addEventListener("submit", function(e) {
