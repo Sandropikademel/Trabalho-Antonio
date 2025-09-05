@@ -1,13 +1,13 @@
 document.getElementById("loginForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
 
     if (username === "Sandro" && password === "Sandro2025") {
-        alert("✅ Login realizado com sucesso! Bem-vindo, Sandro.");
-        // window.location.href = "dashboard.html"; // Redirecionamento opcional
+        alert("✅ Bem-vindo à Sandro Motors!");
+        // window.location.href = "painel.html"; // Redirecionamento opcional
     } else {
-        alert("❌ Usuário ou senha incorretos. Tente novamente.");
+        alert("❌ Usuário ou senha inválidos. Tente novamente.");
     }
 });
