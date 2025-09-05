@@ -1,7 +1,5 @@
-// script.js
 document.addEventListener('DOMContentLoaded', function() {
-    const loginForm = document.getElementById('loginForm');
-    const messageDiv = document.getElementById('message');
+    const loginForm = document.getElementById('login-form');
     
     loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -9,31 +7,39 @@ document.addEventListener('DOMContentLoaded', function() {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
         
-        // Validação do login
-        if (username === 'sandro' && password === '01011990') {
-            showMessage('Login realizado com sucesso!', 'success');
-            
-            // Limpar o formulário
-            loginForm.reset();
-            
-            // Simular redirecionamento (em um sistema real, redirecionaria para outra página)
-            setTimeout(function() {
-                alert('Bem-vindo ao sistema, Sandro!');
-            }, 1000);
-            
+        // Remover alertas anteriores
+        removeExistingAlerts();
+        
+        // Credenciais válidas (seu nome como usuário e aniversário como senha)
+        const validUsername = 'SeuNome'; // Substitua pelo seu nome
+        const validPassword = '01011990'; // Substitua pela sua data de nascimento no formato DDMMAAAA
+        
+        if (username === validUsername && password === validPassword) {
+            showAlert('Login realizado com sucesso!', 'success');
+            // Redirecionar após login bem-sucedido (opcional)
+            setTimeout(() => {
+                // window.location.href = 'pagina-principal.html';
+            }, 1500);
         } else {
-            showMessage('Usuário ou senha incorretos!', 'error');
+            showAlert('Usuário ou senha incorretos!', 'error');
         }
     });
     
-    function showMessage(text, type) {
-        messageDiv.textContent = text;
-        messageDiv.className = 'message ' + type;
-        messageDiv.classList.remove('hidden');
+    function showAlert(message, type) {
+        const alertDiv = document.createElement('div');
+        alertDiv.className = `alert ${type}`;
+        alertDiv.appendChild(document.createTextNode(message));
         
-        // Esconder a mensagem após 5 segundos
-        setTimeout(function() {
-            messageDiv.classList.add('hidden');
-        }, 5000);
+        loginForm.appendChild(alertDiv);
+        
+        // Remover alerta após 3 segundos
+        setTimeout(() => {
+            alertDiv.remove();
+        }, 3000);
+    }
+    
+    function removeExistingAlerts() {
+        const existingAlerts = document.querySelectorAll('.alert');
+        existingAlerts.forEach(alert => alert.remove());
     }
 });
